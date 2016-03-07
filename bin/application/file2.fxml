@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <children>
+      <Pane prefHeight="547.0" prefWidth="551.0" style="-fx-background-color: #F9FFF2;">
+         <children>
+            <TextArea id="content" fx:id="TextContent" depthTest="DISABLE" editable="false" layoutX="22.0" layoutY="18.0" prefHeight="361.0" prefWidth="373.0" style="-fx-background-color: #E0E0E0;" styleClass="content" stylesheets="@application.css" wrapText="true">
+               <contextMenu>
+                  <ContextMenu id="ContextMenu">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu>
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </TextArea>
+            <TextField id="text" fx:id="TextAdd" alignment="TOP_LEFT" layoutX="22.0" layoutY="386.0" onAction="#OnClick" prefHeight="135.0" prefWidth="373.0" style="-fx-background-color: #E8FFF7;">
+               <effect>
+                  <Glow level="0.23" />
+               </effect></TextField>
+            <Button id="send" fx:id="ButtonSend" layoutX="406.0" layoutY="481.0" mnemonicParsing="false" onAction="#OnClick" prefHeight="32.0" prefWidth="131.0" style="-fx-background-color: #7689F5;" text="Send" textAlignment="CENTER">
+               <effect>
+                  <DropShadow color="#0000006d" />
+               </effect></Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
