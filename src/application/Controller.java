@@ -81,7 +81,8 @@ public class Controller {
 		//this.chatserver = new Chatserver(localhostInetAddress, 15080, this);
 		//this.chatserver.start();
 		
-		this.client = new Client("localhost",15080);
+		this.client = new Client("localhost",15080, this);
+		
 		this.client.start();
 		
 	}
@@ -93,15 +94,17 @@ public class Controller {
 		String text = arg0 + TextAdd.getText();
 		if (!text.equals("")) {
 			
-			//this.chatserver.notifier_message(arg0 + text, null);
 			this.writeSomething(text);
 			this.saveContent(TextContent.getText() + "\nServer: " + text);
 
+			
+			
 			System.out.println("Sent");
 		} else {
 			System.out.println("not sent");
 		}
 
+		
 		
 	}
 

@@ -5,12 +5,16 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.net.UnknownHostException;
+
+import application.Controller;
 
 public class Client {
 	
 	private String host;
 	private int portnumber;
-	
+	private Controller controller;
+	private Socket socket;
 	
 	public String getHost() {
 		return host;
@@ -24,11 +28,31 @@ public class Client {
 
 
 
+	/**
+	 * @return the client
+	 */
+	public Controller getClient() {
+		return controller;
+	}
 
-	public Client(String host, int portnumber) {
+
+
+	/**
+	 * @param client the client to set
+	 */
+	public void setClient(Controller controller) {
+		this.controller = controller;
+	}
+	
+
+
+	public Client(String host, int portnumber, Controller controller) throws UnknownHostException, IOException {
 		super();
 		this.host = host;
 		this.portnumber = portnumber;
+		this.controller = controller;
+		this.socket = new Socket(host, portnumber);
+		
 	}
 
 
@@ -36,27 +60,68 @@ public class Client {
 	public void start() throws IOException
 	{
 		System.out.println("start");
-		while (true) {
-			Socket socket = new Socket(this.host, this.portnumber);
-			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-
-			System.out.println("server says:" + br.readLine());
-
-			BufferedReader userInputBR = new BufferedReader(new InputStreamReader(System.in));
-			String userInput = userInputBR.readLine();
-
-			out.println(userInput);
-
-			System.out.println("server says:" + br.readLine());
-
-			if ("exit".equalsIgnoreCase(userInput)) {
-				socket.close();
-				break;
-			}
 		
-	}
+		Thread thread = new Thread(new Runnable(){
+
+		    @Override
+		    public void run() {
+		    	while (true) {
+					
+					BufferedReader br;
+					try {
+						br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+					
+					
+					String temp1 = br.readLine();
+					if(!temp1.equals("")){
+					System.out.println("Server:" + br.readLine());
+					
+					String temp2 = br.readLine();
+					System.out.println(temp2);
+					}else{
+						System.out.println(br.readLine());
+						
+					}
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					
+					
+			
+			}   
+		    }
+		    
+		});
+
+		thread.start();
+		
+		
+		
+			
+			
+		}
+	
+
+
+
+public void send_message() throws IOException{
+
+	PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+
+	BufferedReader userInputBR = new BufferedReader(new InputStreamReader(System.in));
+	String userInput = userInputBR.readLine();
+
+	out.println(userInput);
+
+	if ("exit".equalsIgnoreCase(userInput)) {
+		socket.close();
 	}
 	
+	
+}
+
+
 
 }

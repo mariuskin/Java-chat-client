@@ -35,27 +35,9 @@ public class Main extends Application {
 	            @Override
 	            public void handle(WindowEvent t) {
 	            	
-//	            	FXMLLoader loader = new FXMLLoader(getClass().getResource("file.fxml"));
-//	            	try {
-//						Parent root = (Parent)loader.load();
-//					} catch (IOException e1) {
-//						// TODO Auto-generated catch block
-//						e1.printStackTrace();
-//					}
-//	            	Controller controller = (Controller)loader.getController();
-//	            	
-//	            	try {
-//						controller.saveContent();
-//					} catch (FileNotFoundException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					}
-
 	            	System.out.println("fin");
 	            	
-	            	
-	            	
-	                Platform.exit();
+	            	Platform.exit();
 	                System.exit(0);
 	            }
 	        });

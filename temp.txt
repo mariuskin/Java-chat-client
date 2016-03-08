@@ -20,3 +20,13 @@ You: hi !
 
 Server: 
 You: hi ! 
+
+You: kj
+
+Server: 
+You: kj
+
+You: kjh
+
+Server: 
+You: kjh
