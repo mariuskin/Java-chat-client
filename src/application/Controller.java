@@ -88,16 +88,17 @@ public class Controller {
 	}
 
 	@FXML
-	void OnClick(ActionEvent event) throws FileNotFoundException {
+	void OnClick(ActionEvent event) throws IOException {
 
 		String arg0 = "\nYou: ";
-		String text = arg0 + TextAdd.getText();
+		String gotText = TextAdd.getText();
+		String text = arg0 + gotText;
 		if (!text.equals("")) {
 			
 			this.writeSomething(text);
 			this.saveContent(TextContent.getText() + "\nServer: " + text);
 
-			
+			client.send_message("\n" + gotText);
 			
 			System.out.println("Sent");
 		} else {

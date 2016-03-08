@@ -56,3 +56,68 @@ You: hhh
 
 Server: 
 You: hhh
+Server:
+Server: hello
+
+You: begone
+
+You: and yet
+
+You: jhgjg
+
+You: mm
+
+Server: 
+You: mm
+Server:
+Server: jhg
+
+You: jhg
+
+You: j
+
+You: momo
+Server: and you
+
+You: yeh
+
+Server: 
+You: yeh
+Server:
+Server: now it has to work
+
+You: it does
+
+You: actually
+
+Server: 
+You: actually
+
+You: hey
+Server: yeah
+
+You: nothing
+Server: got it
+
+You: ok
+
+Server: 
+You: ok
+
+You: ca marche??
+Server: dont know
+
+You: oh
+
+Server: 
+You: oh
+
+You: now
+
+Server: 
+You: now
+
+You: now
+
+Server: 
+You: now

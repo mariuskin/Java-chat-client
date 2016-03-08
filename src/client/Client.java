@@ -1,11 +1,14 @@
 package client;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.nio.charset.StandardCharsets;
 
 import application.Controller;
 
@@ -77,7 +80,6 @@ public class Client {
 					if(!temp1.equals("")){
 						
 					String temp3 = br.readLine();	
-					controller.writeSomething2("Server:" + temp3.toString());
 					
 					String temp2 = br.readLine();
 					controller.writeSomething2(temp2.toString());
@@ -111,14 +113,18 @@ public class Client {
 
 
 
-public void send_message() throws IOException{
+public void send_message(String text) throws IOException{
 
 	PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
-	BufferedReader userInputBR = new BufferedReader(new InputStreamReader(System.in));
+	InputStream stream = new ByteArrayInputStream(text.getBytes(StandardCharsets.UTF_8));
+	
+	BufferedReader userInputBR = new BufferedReader(new InputStreamReader(stream));
+	
 	String userInput = userInputBR.readLine();
-
-	out.println(userInput);
+	
+	String userInput1 = userInputBR.readLine();
+	out.println(userInput1);
 
 	if ("exit".equalsIgnoreCase(userInput)) {
 		socket.close();
