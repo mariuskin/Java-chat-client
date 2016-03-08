@@ -65,6 +65,7 @@ public class Client {
 
 		    @Override
 		    public void run() {
+		    	
 		    	while (true) {
 					
 					BufferedReader br;
@@ -74,12 +75,16 @@ public class Client {
 					
 					String temp1 = br.readLine();
 					if(!temp1.equals("")){
-					System.out.println("Server:" + br.readLine());
+						
+					String temp3 = br.readLine();	
+					controller.writeSomething2("Server:" + temp3.toString());
 					
 					String temp2 = br.readLine();
-					System.out.println(temp2);
+					controller.writeSomething2(temp2.toString());
+					
 					}else{
-						System.out.println(br.readLine());
+					
+						controller.writeSomething2(br.readLine().toString());
 						
 					}
 					} catch (IOException e) {

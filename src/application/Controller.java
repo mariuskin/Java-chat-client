@@ -114,6 +114,18 @@ public class Controller {
 		TextAdd.clear();
 	}
 	
+	public void writeSomething2(String t) {
+		Platform.runLater(new Runnable() {
+	        @Override
+	        public void run() {
+		TextContent.appendText(t + "\n");
+		TextAdd.clear();
+		
+		  //javaFX operations should go here
+	        }
+	   });
+	}
+	
 	public void sleep(int i) {
 		try {
 		    Thread.sleep(i);;                 //1000 milliseconds is one second.

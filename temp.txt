@@ -30,3 +30,29 @@ You: kjh
 
 Server: 
 You: kjh
+
+You: mario
+
+Server: 
+You: mario
+Server:
+You: jh
+
+Server: 
+You: jh
+
+You: jj
+
+You: ll
+
+You: jhjjh
+
+Server: 
+You: jhjjh
+
+You: j
+
+You: hhh
+
+Server: 
+You: hhh
